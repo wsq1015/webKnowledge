@@ -106,6 +106,50 @@ mvc 和 mvvm 其实区别并不大。都是一种设计思想。主要就是 mvc
     }
 </script>
 ```
+//或者像这样
+//子组件
+<template>
+   <div>
+	   <h2>child子组件部分</h2>
+	   <p>{{message}}</p>
+	   <button v-on:click="sendMsgToParent">向父组件传值</button>
+   </div>
+</template>
+<script>
+	exports default{
+		props:["message"],
+		methods:{
+			sendMsgParent:function(){
+				this.$emit("listenToChildEvent","this message is from child");
+			}
+		}
+	}
+</script>
+
+//父组件
+<template>
+   <div id="app">
+	   <child v-bind:message="parentMsg" v-on:listenToChildEvent="showMsgFromChild"></child>
+   </div>
+</template>
+<script>
+    //引入子组件
+    import child form "./Child"
+
+    exprot default{
+    	name:"app",
+	data(){
+		return {
+			parentMsg:"hello,child"
+		}
+	},
+        methods:{
+            showMsgFromChild:function(data){
+		console.log(data);
+            }
+        }
+    }
+</script>
 
 ### active-class 是哪个组件的属性？
 
