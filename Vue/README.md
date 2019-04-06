@@ -109,21 +109,22 @@ mvc 和 mvvm 其实区别并不大。都是一种设计思想。主要就是 mvc
 //或者像这样
 //子组件
 <template>
-   <div>
-	   <h2>child子组件部分</h2>
-	   <p>{{message}}</p>
-	   <button v-on:click="sendMsgToParent">向父组件传值</button>
-   </div>
+    <div>
+	 <h2>child子组件部分</h2>
+	 <p>{{message}}</p>
+	 <button v-on:click="sendMsgToParent">向父组件传值</button>   
+    </div>
 </template>
 <script>
-	exports default{
-		props:["message"],
-		methods:{
-			sendMsgParent:function(){
-				this.$emit("listenToChildEvent","this message is from child");
-			}
+    exprot default{
+        props:["message"],
+        //接受父组件传值
+        methods:{
+		sendMsgParent:function(){
+			this.$emit("listenToChildEvent","this message is from child");
 		}
 	}
+    }
 </script>
 
 //父组件
