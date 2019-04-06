@@ -106,6 +106,7 @@ mvc 和 mvvm 其实区别并不大。都是一种设计思想。主要就是 mvc
     }
 </script>
 ```
+```
 //或者像这样
 //子组件
 <template>
@@ -151,7 +152,7 @@ mvc 和 mvvm 其实区别并不大。都是一种设计思想。主要就是 mvc
         }
     }
 </script>
-
+```
 ### active-class 是哪个组件的属性？
 
 vue-router 模块的 router-link 组件。
